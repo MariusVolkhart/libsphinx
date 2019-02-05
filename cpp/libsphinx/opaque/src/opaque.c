@@ -26,9 +26,9 @@
 #include <stdint.h>
 #include <string.h>
 #include "decaf.h"
-#include <crypto_generichash.h>
-#include <crypto_pwhash.h>
-#include <randombytes.h>
+#include <sodium/crypto_generichash.h>
+#include <sodium/crypto_pwhash.h>
+#include <sodium/randombytes.h>
 #include <sodium/utils.h>
 #include "opaque.h"
 

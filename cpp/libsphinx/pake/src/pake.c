@@ -22,8 +22,8 @@
 #include <stdint.h>
 #include <string.h>
 #include "decaf.h"
-#include <crypto_generichash.h>
-#include <randombytes.h>
+#include <sodium/crypto_generichash.h>
+#include <sodium/randombytes.h>
 #include <sodium/utils.h>
 
 // server shares pk as P_s with client_init

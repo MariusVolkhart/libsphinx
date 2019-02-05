@@ -16,9 +16,9 @@
     along with pitchforked sphinx. If not, see <http://www.gnu.org/licenses/>.
 */
 #include <stdint.h>
-#include <decaf.h>
-#include <randombytes.h>
-#include <crypto_generichash.h>
+#include "decaf.h"
+#include <sodium/randombytes.h>
+#include <sodium/crypto_generichash.h>
 #include "sphinx.h"
 
 /* params:

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "decaf.h"
-#include <crypto_secretbox.h>
+#include <sodium/crypto_secretbox.h>
 
 typedef struct {
   uint8_t nonce[crypto_secretbox_NONCEBYTES];
