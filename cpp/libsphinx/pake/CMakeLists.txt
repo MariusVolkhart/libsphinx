@@ -1,16 +1,23 @@
 cmake_minimum_required(VERSION 3.9.3)
 project(pake C)
 
-set(CMAKE_C_STANDARD 11)
+find_library(sodium sodium)
 
-add_library(pake src/pake.c)
-target_include_directories(pake
-        PUBLIC include
-        PUBLIC ${CMAKE_BINARY_DIR}/goldilocks/src/GENERATED/include
-        )
-target_compile_options(pake
-        PUBLIC -fPIC
-        PRIVATE -Wall -O3 -g
-        )
+function(add_pake_library target linkage)
+  add_library(${target} ${linkage} src/pake.c)
+  target_include_directories(${target}
+      PUBLIC include
+      )
+  target_compile_options(${target}
+      PUBLIC -fPIC
+      PRIVATE -Wall -g -Werror
+      )
+  target_link_libraries(${target}
+      PRIVATE decaf-static
+      PRIVATE sodium
+      )
+  set_target_properties(${target} PROPERTIES C_STANDARD 11)
+endfunction()
 
-target_link_libraries(pake decaf)
+add_pake_library(pake SHARED)
+add_pake_library(pake-static STATIC)
