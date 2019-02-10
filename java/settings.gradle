@@ -1,0 +1,4 @@
+rootProject.name = 'sphinx-parent'
+include 'sphinx'
+include 'sphinx-jar-test'
+
